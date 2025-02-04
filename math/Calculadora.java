@@ -1,4 +1,4 @@
-package calculadora;
+package math;
 
 import java.util.Scanner;
 
