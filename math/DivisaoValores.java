@@ -18,7 +18,7 @@ public class DivisaoValores {
             }
         }
         int remainder = x / y;
-        System.out.println("O resto da divisão entre " + x + " e " + y + " é " + remainder);
+        System.out.println("O resultado da divisão entre " + x + " e " + y + " é " + remainder);
         digita.close();
     }
 }
