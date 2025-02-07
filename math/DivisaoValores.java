@@ -17,7 +17,7 @@ public class DivisaoValores {
                 y = digita.nextInt();
             }
         }
-        int remainder = x % y;
+        int remainder = x / y;
         System.out.println("O resto da divisão entre " + x + " e " + y + " é " + remainder);
         digita.close();
     }
