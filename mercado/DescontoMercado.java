@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class DescontoMercado {
     public static void main(String[] args) {
-        int sair = 0;
-        while (sair == 0) {
+        int sair = 1;
+        while (sair == 1) {
             float total = 0;
 
             Scanner digita = new Scanner(System.in);
@@ -19,17 +19,15 @@ public class DescontoMercado {
 
             float percent = 1;
 
-            if(quant >= 11 || quant >= 20){
+            if(quant <= 11){
                 percent = (float) (percent - 0.10);
             }
             else{
-                if(quant >= 21 || quant >=50){
+                if(quant <=50){
                     percent = (float) (percent - 0.20);
                 }
                 else{
-                    if(quant > 50){
-                        percent = (float) (percent - 0.25);
-                    }
+                    percent = (float) (percent - 0.25);
                 }
             }
             total = total * percent;
@@ -37,7 +35,6 @@ public class DescontoMercado {
             System.out.println(" --------------------------------------------- ");
             System.out.println("Deseja sair? 0 - Sim, 1 - Não : ");
             sair = digita.nextInt();
-            digita.close();
         }
     }
 }
