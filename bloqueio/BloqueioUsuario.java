@@ -7,36 +7,28 @@ public class BloqueioUsuario {
         try (Scanner digita = new Scanner(System.in)) {
             int count = 0;
             String lastUser = "";
-            while (true) {
+            while (count < 3) {
                 System.out.println("Digite seu usuário: ");
                 String usuario = digita.nextLine();
                 System.out.println("Digite sua senha: ");
                 String senha = digita.nextLine();
-
                 if (!usuario.equals(lastUser)){
                     count = 0;
                     lastUser = usuario;
                 }
-
-                if(!usuario.equals("aluno")){
-                    System.out.println("Usuário incorreto ou inexistente!");
+                if(usuario.equals("aluno") && senha.equals("segredo")){
+                    System.out.println("Bem vindo!");
+                    break;
                 }
                 else{
-                    if(usuario.equals("aluno") && senha.equals("segredo")){
-                        System.out.println("Bem vindo!");
+                    if(count == 2){
+                        System.out.println("Usuário bloqueado!");
                         break;
                     }
-                    else{
-                        if(count == 2){
-                            System.out.println("Usuário bloqueado!");
-                            break;
-                        }
-                        count  = count + 1;
-                        System.out.println("Senha incorreta, mais " + (3-count) + " tentivas o usuário será bloqueado!");
-                    }
+                    count  = count + 1;
+                    System.out.println("Senha incorreta, mais " + (3-count) + " tentivas o usuário será bloqueado!");
                 }
             }
         }
     }
-    
 }
