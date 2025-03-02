@@ -1,30 +1,18 @@
 package math;
 
 import java.util.Scanner;
-import java.util.Vector;
 
 public class ValoresImpares {
     public static void main(String[] args) {
-        Scanner digita = new Scanner(System.in);
-        Vector<String> valores = new Vector<>();
+        int valores[] = {1,2,3,4,5,6,7,8,9,10};
+        int impares = 0;
 
-        for(int i = 0; i < 10; i++){
-            System.out.println("Digite um número: ");
-            int num = digita.nextInt();
-
-            if(num %2 != 0){
-                valores.add(String.valueOf(num));
+        for(int i = 0; i < valores.length; i++){
+            if(valores[i] %2 != 0){
+                impares++;
             }
         }
-
-        if(valores.size() == 0){
-            System.out.println("Nenhum número ímpar.");
-        }
-        else{
-            System.out.println("Números ímpares:" + String.join( "," , valores));
-            System.out.println("Quantidade de números impares: " + valores.size());
-        }
-        digita.close();
+        System.out.println("Quantidade de números impares: " + impares);
     }
-    
+
 }
