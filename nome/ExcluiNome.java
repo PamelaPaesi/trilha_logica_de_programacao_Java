@@ -7,6 +7,7 @@ public class ExcluiNome {
     public static void main(String[] args) {
         Scanner digita = new Scanner(System.in);
         Vector<String> nomes = new Vector<>();
+        Vector<String> nomesUnicos = new Vector<>();
 
         for(int i = 0; i < 20; i++){
             System.out.println("Digite um nome: ");
@@ -14,13 +15,14 @@ public class ExcluiNome {
             nomes.add(String.valueOf(nome));
         }
         System.out.println("---------------------------------------------");
-        System.out.println("Digite o nome para ser excluído: ");
-        String remove = digita.nextLine();
-        System.out.println("---------------------------------------------");
 
-        nomes.removeIf(nome -> nome.equalsIgnoreCase(remove));
-        if (!nomes.isEmpty()) {
-            String name = String.join(", ", nomes);
+        for (int i = 0; i < 20; i++) {
+            if (!nomesUnicos.contains(nomes.get(i))) {
+                nomesUnicos.add(nomes.get(i));
+            }
+        }
+        if (!nomesUnicos.isEmpty()) {
+            String name = String.join(", ", nomesUnicos);
             System.out.println(name);
         } else {
             System.out.println("Nenhum nome restante.");
