@@ -1,32 +1,37 @@
 package nome;
 
 import java.util.Scanner;
-import java.util.Vector;
 
 public class ExcluiNome {
     public static void main(String[] args) {
         Scanner digita = new Scanner(System.in);
-        Vector<String> nomes = new Vector<>();
-        Vector<String> nomesUnicos = new Vector<>();
-
-        for(int i = 0; i < 20; i++){
-            System.out.println("Digite um nome: ");
-            String nome = digita.nextLine();
-            nomes.add(String.valueOf(nome));
-        }
+        String[] nomesUnicos = new String[20];
+        int countUnicos = 0;
+        String[] nomes = {
+                "Luana", "Diogo", "Ceci", "Marley", "Mel", "Nelson", "Nair", "Elaine", "Jorge", "Rita", "Diogo",
+                "Marley", "Mel", "Ceci", "Maria", "Andrea", "Carmen", "Joana", "Luana", "Rita"
+        };
         System.out.println("---------------------------------------------");
 
-        for (int i = 0; i < 20; i++) {
-            if (!nomesUnicos.contains(nomes.get(i))) {
-                nomesUnicos.add(nomes.get(i));
+        for (String nome : nomes) {
+            boolean repetido = false;
+            for (int i = 0; i < countUnicos; i++) {
+                if (nomesUnicos[i].equalsIgnoreCase(nome)) {
+                    repetido = true;
+                    break;
+                }
+            }
+            if (!repetido) {
+                nomesUnicos[countUnicos] = nome;
+                countUnicos++;
             }
         }
-        if (!nomesUnicos.isEmpty()) {
-            String name = String.join(", ", nomesUnicos);
-            System.out.println(name);
+        if (countUnicos > 0) {
+            for (int i = 0; i < countUnicos; i++) {
+                System.out.println(nomesUnicos[i]);
+            }
         } else {
-            System.out.println("Nenhum nome restante.");
+            System.out.println("Nenhum nome repetido.");
         }
-        digita.close();
     }
 }
